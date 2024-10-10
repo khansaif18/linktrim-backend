@@ -14,13 +14,13 @@ mongoose.connect(process.env.MONGODB_URI)
     .catch((err) => console.log('MongoDB Connection Error', err));
 
 
-app.use(cors())
-
-// {
-    // origin: 'https://linktrim-saif.vercel.app',
+app.use(cors({
+    origin: 'https://linktrim-saif.vercel.app',
     // origin: ' http://localhost:5173',
-    // credentials: true
-// }
+    credentials: true
+}))
+
+
 
 
 app.use(express.urlencoded({ extended: false }))

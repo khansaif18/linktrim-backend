@@ -53,3 +53,17 @@ urlRoute.delete('/delete/:id', async (req, res) => {
         return res.status(404).json({ error: 'Some error occured, could not delete url' })
     }
 })
+
+
+
+// for testing purpose
+urlRoute.get('/my-all-urls', async (req, res) => {
+    try {
+        const urls = await Url.find({})
+        if (!urls) return res.status(404).json({ status: 'No url found' })
+        else return res.status(200).json(urls)
+    } catch (error) {
+        console.log('Error finding user url : ', error);
+        return res.status(404).json({ status: 'Some error occured' })
+    }
+})
