@@ -10,7 +10,17 @@ const urlSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    visitHistory: [{ timestamp: { type: String } }],
+    anaylytics: [
+        {
+            timestamp: Date,
+            device: {
+                browser: String,
+                platform: String,
+                model: String
+            },
+            country: String,
+        }, { _id: false }
+    ],
     createdBy: {
         type: String,
         required: true,
